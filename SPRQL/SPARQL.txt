@@ -65,3 +65,26 @@ select * where {
      props:widthOfDoorAccessRoute_simple ?value.
 } 
 
+
+//query to evaluate new building and two properties
+PREFIX beo: <https://pi.pauwel.be/voc/buildingelement#>
+PREFIX props: <http://lbd.arch.rwth-aachen.de/props#>
+PREFIX inst: <https://www.ugent.be/myAwesomeFirstBIMProject#>
+PREFIX bot: <https://w3id.org/bot#>
+select * where { 
+
+       ?building a bot:Building;
+     	props:isNew_simple <https://w3id.org/express#TRUE> .
+        ?building bot:hasStorey ?story.
+        ?story bot:hasSpace ?space.
+        ?space bot:containsElement ?door.
+    
+       ?door props:widthOfDoorAccessRoute_simple  ?valueAccess;
+                    filter(?valueAccess >= 1.500)
+    { 
+       ?door props:clearWidth_simple  ?valueWidth;
+        filter( ?valueWidth <= 0.800)       
+    }     
+                                   
+} 
+
