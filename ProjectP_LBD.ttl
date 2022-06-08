@@ -1,0 +1,120 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix ifc: <https://standards.buildingsmart.org/IFC/DEV/IFC2x3/TC1/OWL#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix beo: <https://pi.pauwel.be/voc/buildingelement#> .
+@prefix lbd: <https://linkebuildingdata.org/LBD#> .
+@prefix props: <http://lbd.arch.rwth-aachen.de/props#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix IFC4-PSD: <https://www.linkedbuildingdata.net/IFC4-PSD#> .
+@prefix smls: <https://w3id.org/def/smls-owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix inst: <https://www.ugent.be/myAwesomeFirstBIMProject#> .
+@prefix mep: <http://pi.pauwel.be/voc/distributionelement#> .
+@prefix furn: <http://pi.pauwel.be/voc/furniture#> .
+
+inst:storey_36df5000-0000-0000-0000-48d00e51c290
+        bot:hasSpace  inst:space_36ce6000-0000-0000-0000-48d00e51c290 ;
+        rdf:type      bot:Storey ;
+        props:globalIdIfcRoot_attribute_simple  "0str0000000000ID0EKSAG" ;
+        props:nameIfcRoot_attribute_simple  "Level-0" ;
+        props:longNameIfcSpatialStructureElement_attribute_simple  "Level-0" ;
+        props:objectTypeIfcObject_attribute_simple  "storey" ;
+        props:elevationIfcBuildingStorey_attribute_simple  "0."^^xsd:double ;
+        props:descriptionIfcRoot_attribute_simple  "Level-0" .
+
+inst:site_36b37000-0000-0000-0000-48d00e51c290
+        bot:hasBuilding  inst:building_25e2c000-0000-0000-0000-48d00e51c290 ;
+        rdf:type         bot:Site ;
+        props:globalIdIfcRoot_attribute_simple  "0sit0000000000ID0EKSAG" ;
+        props:nameIfcRoot_attribute_simple  "Site_1" ;
+        props:longNameIfcSpatialStructureElement_attribute_simple  "Site_1" ;
+        props:objectTypeIfcObject_attribute_simple  "site" ;
+        props:descriptionIfcRoot_attribute_simple  "Site_1" .
+
+inst:door_26c33000-0000-0000-0000-48d00e7df290
+        props:poweredDoorOpeningClosingSystemUsed_simple  <https://w3id.org/express#TRUE> ;
+        rdf:type                      beo:Door ;
+        props:partOfAccessibleEntrance_simple  <https://w3id.org/express#TRUE> ;
+        props:upperVisionPanelTopHeight_simple  "2.1"^^xsd:double ;
+        props:usedByGeneralPublic_simple  <https://w3id.org/express#TRUE> ;
+        props:overallWidth_simple     2.E-1 ;
+        props:updated_simple          "2018-12-31T12:36:52" ;
+        props:ifcEntity_simple        "IfcDoor" ;
+        props:widthOfDoorAccessRoute_simple  "3."^^xsd:double ;
+        props:isExternal_simple       <https://w3id.org/express#TRUE> ;
+        props:nameIfcRoot_attribute_simple  "E1" ;
+        props:accessStatement_simple  "none" ;
+        props:objectTypeIfcObject_attribute_simple  "component" ;
+        props:descriptionIfcRoot_attribute_simple  "External door" ;
+        props:directionOfApproachToDoor_simple  "Straight On" ;
+        rdf:type                      bot:Element ;
+        props:clearWidth_simple       "0.45"^^xsd:double ;
+        props:isSelfClosing_simple    <https://w3id.org/express#TRUE> ;
+        props:lowerVisionPanelBaseHeight_simple  1.E-1 ;
+        props:elevation_simple        "0."^^xsd:double ;
+        props:overallHeight_simple    "2.2"^^xsd:double ;
+        props:upperVisionPanelBaseHeight_simple  "1."^^xsd:double ;
+        props:northing_simple         "0."^^xsd:double ;
+        props:easting_simple          "3."^^xsd:double ;
+        props:overallLength_simple    "2."^^xsd:double ;
+        props:lowerVisionPanelTopHeight_simple  8.E-1 ;
+        props:specification_simple    "SE1" ;
+        props:forceRequiredToOpenDoorAtLeadingEdge_simple  "25."^^xsd:double ;
+        props:globalIdIfcRoot_attribute_simple  "0cmp0000000000ID0EVVAG" .
+
+inst:building_25e2c000-0000-0000-0000-48d00e51c290
+        props:descriptionIfcRoot_attribute_simple  "Building_1" ;
+        rdf:type            bot:Building ;
+        props:isNew_simple  <https://w3id.org/express#TRUE> ;
+        props:elevationOfTerrainIfcBuilding_attribute_simple  "0."^^xsd:double ;
+        props:nameIfcRoot_attribute_simple  "Building_1" ;
+        props:globalIdIfcRoot_attribute_simple  "0bui0000000000ID0EKSAG" ;
+        bot:hasStorey       inst:storey_36df5000-0000-0000-0000-48d00e51c290 ;
+        props:objectTypeIfcObject_attribute_simple  "building" ;
+        props:elevationOfRefHeightIfcBuilding_attribute_simple  "0."^^xsd:double ;
+        props:longNameIfcSpatialStructureElement_attribute_simple  "Building_1" .
+
+inst:space_36ce6000-0000-0000-0000-48d00e51c290
+        bot:containsElement  inst:door_26c33000-0000-0000-0000-48d00e51c290 ;
+        bot:containsElement  inst:door_26c33000-0000-0000-0000-48d00e7df290 ;
+        rdf:type             bot:Space ;
+        props:globalIdIfcRoot_attribute_simple  "0spc0000000000ID0EKSAG" ;
+        props:nameIfcRoot_attribute_simple  "Bay-0" ;
+        props:longNameIfcSpatialStructureElement_attribute_simple  "Bay-0" ;
+        props:objectTypeIfcObject_attribute_simple  "space" ;
+        props:elevationWithFlooringIfcSpace_attribute_simple  "0."^^xsd:double ;
+        props:descriptionIfcRoot_attribute_simple  "Bay-0" .
+
+inst:door_26c33000-0000-0000-0000-48d00e51c290
+        rdf:type                      beo:Door ;
+        props:isExternal_simple       <https://w3id.org/express#FALSE> ;
+        props:widthOfDoorAccessRoute_simple  "2."^^xsd:double ;
+        props:isSelfClosing_simple    <https://w3id.org/express#FALSE> ;
+        props:updated_simple          "2018-12-31T12:36:52" ;
+        props:elevation_simple        "0."^^xsd:double ;
+        props:upperVisionPanelTopHeight_simple  "1.7"^^xsd:double ;
+        props:upperVisionPanelBaseHeight_simple  "1."^^xsd:double ;
+        props:partOfAccessibleEntrance_simple  <https://w3id.org/express#FALSE> ;
+        props:overallWidth_simple     1.E-1 ;
+        props:usedByGeneralPublic_simple  <https://w3id.org/express#FALSE> ;
+        props:poweredDoorOpeningClosingSystemUsed_simple  <https://w3id.org/express#FALSE> ;
+        props:clearWidth_simple       "1.25"^^xsd:double ;
+        props:forceRequiredToOpenDoorAtLeadingEdge_simple  "10."^^xsd:double ;
+        props:ifcEntity_simple        "IfcDoor" ;
+        props:objectTypeIfcObject_attribute_simple  "component" ;
+        props:specification_simple    "SI1" ;
+        props:easting_simple          "0."^^xsd:double ;
+        props:lowerVisionPanelTopHeight_simple  8.E-1 ;
+        props:globalIdIfcRoot_attribute_simple  "0cmp0000000000ID0EKSAG" ;
+        props:overallLength_simple    "1."^^xsd:double ;
+        props:overallHeight_simple    "1.8"^^xsd:double ;
+        props:northing_simple         "0."^^xsd:double ;
+        props:nameIfcRoot_attribute_simple  "I1" ;
+        props:lowerVisionPanelBaseHeight_simple  4.E-1 ;
+        props:accessStatement_simple  "none" ;
+        rdf:type                      bot:Element ;
+        props:descriptionIfcRoot_attribute_simple  "Internal door" ;
+        props:directionOfApproachToDoor_simple  "Straight On" .
