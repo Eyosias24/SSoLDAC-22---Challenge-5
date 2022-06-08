@@ -1,0 +1,67 @@
+
+
+// Count Door
+
+PREFIX beo: <https://pi.pauwel.be/voc/buildingelement#>
+PREFIX props: <http://lbd.arch.rwth-aachen.de/props#>
+select ?p (count(?p) as ?count) 
+where { 
+	?s ?p beo:Door.
+    	
+}
+
+GROUP BY ?p
+
+
+
+
+
+// part Of Accessible Entrance_simple
+
+PREFIX beo: <https://pi.pauwel.be/voc/buildingelement#>
+PREFIX props: <http://lbd.arch.rwth-aachen.de/props#>
+select * where { 
+	?s a beo:Door;
+    	props:partOfAccessibleEntrance_simple ?value.
+}
+
+
+
+// Self-closing
+
+PREFIX beo: <https://pi.pauwel.be/voc/buildingelement#>
+PREFIX props: <http://lbd.arch.rwth-aachen.de/props#>
+select * where { 
+	?s a beo:Door;
+    	props:isSelfClosing_simple ?value.
+} 
+
+// Is the building new or is it existing?
+
+PREFIX beo: <https://pi.pauwel.be/voc/buildingelement#>
+PREFIX props: <http://lbd.arch.rwth-aachen.de/props#>
+PREFIX inst: <https://www.ugent.be/myAwesomeFirstBIMProject#>
+select * where { 
+		inst:building_25e2c000-0000-0000-0000-48d00e51c290 a ?o;
+     	 props:isNew_simple ?value.                                               
+} 
+
+// 
+PREFIX beo: <https://pi.pauwel.be/voc/buildingelement#>
+PREFIX props: <http://lbd.arch.rwth-aachen.de/props#>
+PREFIX inst: <https://www.ugent.be/myAwesomeFirstBIMProject#>
+select * where { 
+		?s ?p beo:Door;
+     props:directionOfApproachToDoor_simple ?value.
+                                                    
+} 
+
+//
+PREFIX beo: <https://pi.pauwel.be/voc/buildingelement#>
+PREFIX props: <http://lbd.arch.rwth-aachen.de/props#>
+PREFIX inst: <https://www.ugent.be/myAwesomeFirstBIMProject#>
+select * where { 
+		?s ?p beo:Door;
+     props:widthOfDoorAccessRoute_simple ?value.
+} 
+
