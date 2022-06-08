@@ -1,0 +1,27 @@
+PREFIX beo: <https://pi.pauwel.be/voc/buildingelement#>
+PREFIX props: <http://lbd.arch.rwth-aachen.de/props#>
+PREFIX inst: <https://www.ugent.be/myAwesomeFirstBIMProject#>
+PREFIX bot: <https://w3id.org/bot#>
+
+select * where { 
+	 ?building a bot:Building;     
+               props:isNew_simple ?buldingDesign.
+    
+    filter (?buldingDesign = <https://w3id.org/express#TRUE>)
+    
+    
+     ?building bot:hasStorey ?story.
+     ?story bot:hasSpace ?space.
+     ?space bot:containsElement ?door.    
+     ?door props:widthOfDoorAccessRoute_simple ?value.
+    
+    filter (?value >1.5)
+    
+    ?door props:clearWidth_simple ?clearWidth
+    
+    Bind(
+        IF(?clearWidth >= 0.8, "PASS","FAIL") As ?results
+    )
+    
+    
+} 
